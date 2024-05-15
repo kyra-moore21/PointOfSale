@@ -29,7 +29,8 @@ namespace PointOfSale
         //methods
         public override string ToString()
         {
-            return $"{Description,-10} {Name,-10} {Category,-30}  {Price,0:C} \t{Stock,20}";
+            
+            return $"{Description,5} {Name,-20} \t{Category,-15} \t {Price,-3:C} {Stock,15}\n";
         }
 
         public static int ReduceStock(int CurrentStock, int Buy)

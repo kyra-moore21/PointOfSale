@@ -1,5 +1,6 @@
 ﻿using PointOfSale;
 using StaticClass;
+using System.Runtime.CompilerServices;
 
 List<Products> PerkItems = new List<Products>()
 {
@@ -19,6 +20,8 @@ List<Products> PerkItems = new List<Products>()
 };
 
 //display 
+
+Console.WriteLine("Item Description                       Category                  Price         Current Stock\n");
 DisplayMenu(PerkItems);
 
 Console.WriteLine("What item would you like?");
