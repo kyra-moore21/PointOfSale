@@ -1,6 +1,9 @@
 ﻿using PointOfSale;
 using StaticClass;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
+
 
 List<Products> PerkItems = new List<Products>()
 {
@@ -19,39 +22,93 @@ List<Products> PerkItems = new List<Products>()
 
 };
 
+decimal lineTotal = 0;
+decimal salesTax = 1.06m;
+
+
 //display 
-
-Console.WriteLine("Item Description                       Category                  Price         Current Stock\n");
-DisplayMenu(PerkItems);
-
-Console.WriteLine("What item would you like?");
-int choice = -1;
-while(!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice >= PerkItems.Count)
+do
 {
-    Console.WriteLine("Invalid Input, please try again");
-}
-Console.WriteLine($"How many {PerkItems[choice - 1].Name}s would you like?");
-
-//stock to match properties
-int stock = 0;
-while(!int.TryParse(Console.ReadLine(),out stock) || stock >= PerkItems[choice -1].Stock || stock < 0 || stock == 0)
-{
-    Console.WriteLine("Invalid Input, please try again");
-}
-
-//reduces the stock 
-PerkItems[choice - 1].Stock = Products.ReduceStock(PerkItems[choice - 1].Stock, stock);
-//checking to see if worked
-DisplayMenu(PerkItems);
 
 
-//Console.WriteLine(PerkItems[choice - 1].Stock);
+    Console.WriteLine("Item Description                       Category                  Price         Current Stock\n");
+    DisplayMenu(PerkItems);
+
+    Console.WriteLine("What item would you like?");
+    int choice = -1;
+    while (!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice >= PerkItems.Count+1)
+    {
+        Console.WriteLine("Invalid Input, please try again");
+    }
+    Console.WriteLine($"How many {PerkItems[choice - 1].Name}s would you like?");
+
+    //stock to match properties
+    int stock = 0;
+    while (!int.TryParse(Console.ReadLine(), out stock) || stock >= PerkItems[choice - 1].Stock || stock < 0 || stock == 0)
+    {
+        Console.WriteLine("Invalid Input, please try again");
+    }
+
+    //reduces the stock 
+    PerkItems[choice - 1].Stock = Products.ReduceStock(PerkItems[choice - 1].Stock, stock);
+    //checking to see if worked
+
+    
+    lineTotal += Products.LineTotal(stock, PerkItems[choice - 1].Price);
+
+
+
+    Console.WriteLine($" You ordered {PerkItems[choice - 1].Name} \n  Quantity: {stock} @ {PerkItems[choice - 1].Price, 0:C}  {Products.LineTotal(stock, PerkItems[choice - 1].Price),0:C}\n");
+    
+    Console.WriteLine($"Subtotal: {RunningSubtotal(lineTotal),0:C}");
+
+
+
+
+   
+
+
+
+
+} while (Validator.GetContinue("Would like to order something else?"));
+
+Console.WriteLine($"Subtotal: {RunningSubtotal(lineTotal),0:C}");
+
+Console.WriteLine($"Sales tax: {(salesTax - 1) * lineTotal,0:C}");
+
+Console.WriteLine($"Grand Total: {GrandTotal(lineTotal, salesTax),0:C}");
+
+decimal GRANDTOTAL = GrandTotal(lineTotal, salesTax);
+
+Console.WriteLine("How would like to purchase your items? \n" +
+                 "1. Cash \n" +
+                 "2. Credit Card \n" +
+                 "3. Check");
+
+
+int payType = int.Parse(Console.ReadLine());
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Methods
 
 static void DisplayMenu(List<Products> items)
 {
@@ -63,3 +120,79 @@ static void DisplayMenu(List<Products> items)
         count++;
     }
 }
+
+static decimal RunningSubtotal (decimal Running )
+{
+
+ decimal subtotal = 0;
+
+ subtotal = Running + subtotal;
+
+  return subtotal;
+
+
+}
+
+static decimal GrandTotal(decimal subtotal, decimal salestax)
+{
+
+    return salestax * subtotal;
+
+}
+
+
+
+static decimal PaymentType(decimal GRANDTOTAL, int PAYMENT)
+
+{
+    if (PAYMENT == 1)
+    {
+        
+        Console.WriteLine("Please enter amount of cash.");
+        decimal CASH = Validator.GetPositiveInputDecimal();
+        
+
+        decimal CHANGE = GRANDTOTAL - CASH;
+        return CHANGE;
+
+
+    }
+
+    return 0;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

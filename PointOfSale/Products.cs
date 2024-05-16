@@ -38,5 +38,13 @@ namespace PointOfSale
             int NewStock = CurrentStock - Buy;
             return NewStock;
         }
+
+        public static decimal LineTotal(int qty, decimal price)
+        {
+           decimal Total = qty* price;
+
+            return Total;
+        }
+
     }
 }
