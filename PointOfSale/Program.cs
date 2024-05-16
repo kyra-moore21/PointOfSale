@@ -7,22 +7,24 @@ using System.Security.Cryptography.X509Certificates;
 
 List<Products> PerkItems = new List<Products>()
 {
-    new Products("Black Drip Coffee", "Drinks", 3.50m, 50),
-    new Products("Hot Chocolate", "Drinks", 4.25m, 45),
-    new Products("Tea", "Drinks", 5.00m, 30),
-    new Products("Bottled Water", "Drinks", 2.00m, 100),
-    new Products("Pour Over Coffee", "Drinks", 6.50m, 64),
-    new Products("Iced Lavender Latte", "Drinks", 5.00m, 23),
-    new Products("Souvenir Tumbler", "Accessories", 12.99m, 60),
-    new Products("Cup Cozy", "Accessories", 8.00m, 65),
-    new Products("Mug Warmer", "Accessories", 18.99m, 25),
-    new Products("TShirt", "Accessories", 26.99m, 35),
-    new Products("Ground Coffee Bean", "Accessories", 12.99m, 20),
-    new Products("Whole Coffee Bean", "Accessories", 10.99m, 20)
+    new Products("Black Drip Coffee","Chicago Black and Blue", "Drinks", 3.50m, 50),
+    new Products("Hot Chocolate","Ooozing with goodness!", "Drinks", 4.25m, 45),
+    new Products("Tea","Mystery Medicine!", "Drinks", 5.00m, 30),
+    new Products("Bottled Water", "Straight from the Chicago River!", "Drinks", 2.00m, 100),
+    new Products("Pour Over Coffee","The pretentious choice!", "Drinks", 6.50m, 64),
+    new Products("Iced Lavender Latte","If romance is on your mind...", "Drinks", 5.00m, 23),
+    new Products("Souvenir Tumbler","For something you will never need!", "Accessories", 12.99m, 60),
+    new Products("Cup Cozy","Only if you need to ramble...", "Accessories", 8.00m, 65),
+    new Products("Mug Warmer","We know you're forgetful!", "Accessories", 18.99m, 25),
+    new Products("TShirt","Wrap yourself in this hot shot!","Accessories", 26.99m, 35),
+    new Products("Ground Coffee Bean","Rise and Groan!", "Accessories", 12.99m, 20),
+    new Products("Whole Coffee Bean","Rise and Grind!", "Accessories", 10.99m, 20)
 
 };
 
 Dictionary<string, int> OrderedItems = new Dictionary<string, int>();
+string item = "Item";
+string description = "Description";
 
 
 decimal lineTotal = 0;
@@ -34,10 +36,10 @@ do
 {
 
 
-    Console.WriteLine("Item Description                       Category                  Price         Current Stock\n");
+    Console.WriteLine($"{item} Description                       Category                  Price         Current Stock\n");
     DisplayMenu(PerkItems);
 
-    Console.WriteLine("What item would you like?");
+    Console.WriteLine("Which item would you like?");
     int choice = -1;
     while (!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice >= PerkItems.Count+1)
     {
@@ -45,7 +47,7 @@ do
     }
 
     //user selects quantity of item
-    Console.WriteLine($"How many {PerkItems[choice - 1].Name}s would you like?");
+    Console.WriteLine($"\n How many {PerkItems[choice - 1].Name}s would you like?");
 
     //stock to match properties
     int quantity = 0;
@@ -65,13 +67,13 @@ do
 
 
 
-    Console.WriteLine($" You ordered {PerkItems[choice - 1].Name} \n  Quantity: {quantity} @ {PerkItems[choice - 1].Price, 0:C}  {Products.LineTotal(quantity, PerkItems[choice - 1].Price),0:C}\n");
+    Console.WriteLine($"\n You ordered {PerkItems[choice - 1].Name} \n  Quantity: {quantity} @ {PerkItems[choice - 1].Price, 0:C}  {Products.LineTotal(quantity, PerkItems[choice - 1].Price),0:C}\n");
     
     Console.WriteLine($"Subtotal: {RunningSubtotal(lineTotal),0:C}");
 
 
 
-} while (Validator.GetContinue("Would like to order something else?"));
+} while (Validator.GetContinue("\n Would like to order something else?"));
 
 //end of loop- Items will get totalled and user selects payment type
 
@@ -80,11 +82,11 @@ ShowReceipt(OrderedItems);
 
 
 
-Console.WriteLine($"Subtotal: {RunningSubtotal(lineTotal),0:C}");
+Console.WriteLine($"\tSubtotal: \t{RunningSubtotal(lineTotal),-3:C}");
 
-Console.WriteLine($"Sales tax: {(salesTax - 1) * lineTotal,0:C}");
+Console.WriteLine($"\tSales tax: \t{(salesTax - 1) * lineTotal,-3:C}");
 
-Console.WriteLine($"Grand Total: {GrandTotal(lineTotal, salesTax),0:C}");
+Console.WriteLine($"\tGrand Total: \t{GrandTotal(lineTotal, salesTax),-3:C}");
 
 decimal GRANDTOTAL = GrandTotal(lineTotal, salesTax);
 
@@ -92,7 +94,7 @@ decimal GRANDTOTAL = GrandTotal(lineTotal, salesTax);
 
 
 
-Console.WriteLine("How would like to purchase your items? \n" +
+Console.WriteLine("\n How would like to purchase your items? \n" +
                  "1. Cash \n" +
                  "2. Credit Card \n" +
                  "3. Check");
@@ -211,10 +213,10 @@ static Dictionary<string, int> AddToReceipt(Dictionary<string,int>OrderedItems, 
 static void ShowReceipt(Dictionary<string, int> OrderedItems)
 {
 
-    Console.WriteLine("----Receipt----");
+    Console.WriteLine("\n -----------Receipt-------------\n");
     foreach (KeyValuePair<string, int> pair in OrderedItems)
     {
-            Console.WriteLine($"{pair.Key}\t{pair.Value,-10}");
+            Console.WriteLine($"\t{pair.Key,-3}\t{pair.Value,-4}\n");
     }
 }
 

@@ -17,11 +17,11 @@ namespace PointOfSale
         public int Stock { get; set; }
 
         //constructor 
-        public Products(string _name, string _category, decimal _price, int _stock)
+        public Products(string _name, string _category, string _description, decimal _price, int _stock)
         {
             Name = _name;
             Category = _category;
-            Description = "Central Perk";
+            Description = _description;
             Price = _price;
             Stock = _stock;
         }
@@ -30,7 +30,7 @@ namespace PointOfSale
         public override string ToString()
         {
             
-            return $"{Description,5} {Name,-20} \t{Category,-15} \t {Price,-3:C} {Stock,15}\n";
+            return $"{Name,-35}{Description}{Category,-15}{Price,7:C}{Stock,5}\n";
         }
 
         public static int ReduceStock(int CurrentStock, int Buy)
