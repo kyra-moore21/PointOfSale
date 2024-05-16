@@ -22,6 +22,9 @@ List<Products> PerkItems = new List<Products>()
 
 };
 
+Dictionary<string, int> OrderedItems = new Dictionary<string, int>();
+
+
 decimal lineTotal = 0;
 decimal salesTax = 1.06m;
 
@@ -40,37 +43,42 @@ do
     {
         Console.WriteLine("Invalid Input, please try again");
     }
+
+    //user selects quantity of item
     Console.WriteLine($"How many {PerkItems[choice - 1].Name}s would you like?");
 
     //stock to match properties
-    int stock = 0;
-    while (!int.TryParse(Console.ReadLine(), out stock) || stock >= PerkItems[choice - 1].Stock || stock < 0 || stock == 0)
+    int quantity = 0;
+    while (!int.TryParse(Console.ReadLine(), out quantity) || quantity >= PerkItems[choice - 1].Stock || quantity < 0 || quantity == 0)
     {
         Console.WriteLine("Invalid Input, please try again");
     }
 
+    AddToReceipt(OrderedItems, PerkItems[choice - 1].Name, quantity);
+
     //reduces the stock 
-    PerkItems[choice - 1].Stock = Products.ReduceStock(PerkItems[choice - 1].Stock, stock);
+    PerkItems[choice - 1].Stock = Products.ReduceStock(PerkItems[choice - 1].Stock, quantity);
     //checking to see if worked
 
     
-    lineTotal += Products.LineTotal(stock, PerkItems[choice - 1].Price);
+    lineTotal += Products.LineTotal(quantity, PerkItems[choice - 1].Price);
 
 
 
-    Console.WriteLine($" You ordered {PerkItems[choice - 1].Name} \n  Quantity: {stock} @ {PerkItems[choice - 1].Price, 0:C}  {Products.LineTotal(stock, PerkItems[choice - 1].Price),0:C}\n");
+    Console.WriteLine($" You ordered {PerkItems[choice - 1].Name} \n  Quantity: {quantity} @ {PerkItems[choice - 1].Price, 0:C}  {Products.LineTotal(quantity, PerkItems[choice - 1].Price),0:C}\n");
     
     Console.WriteLine($"Subtotal: {RunningSubtotal(lineTotal),0:C}");
 
 
 
-
-   
-
-
-
-
 } while (Validator.GetContinue("Would like to order something else?"));
+
+//end of loop- Items will get totalled and user selects payment type
+
+//shows list of items that customer ordered
+ShowReceipt(OrderedItems);
+
+
 
 Console.WriteLine($"Subtotal: {RunningSubtotal(lineTotal),0:C}");
 
@@ -80,24 +88,43 @@ Console.WriteLine($"Grand Total: {GrandTotal(lineTotal, salesTax),0:C}");
 
 decimal GRANDTOTAL = GrandTotal(lineTotal, salesTax);
 
+
+
+
+
 Console.WriteLine("How would like to purchase your items? \n" +
                  "1. Cash \n" +
                  "2. Credit Card \n" +
                  "3. Check");
 
 
-int payType = int.Parse(Console.ReadLine());
+int payType = 0;
+
+while (int.TryParse(Console.ReadLine(), out payType) == false || payType < 1 || payType > 3)
+{
+    Console.WriteLine("Invalid Input, try again");
 
 
+}
+
+//If statement for which payment type was selected
+
+if (payType == 1)
+{
+    Console.WriteLine(CashPayment(GRANDTOTAL));
+}
+else if (payType == 2)
+{
+    Console.WriteLine (CreditPayment(GRANDTOTAL));
+}
+
+else
+{
+    Console.WriteLine(CheckPayment(GRANDTOTAL));
+}
 
 
-
-
-
-
-
-
-
+Console.WriteLine("\nThank you for shopping with us at Central Perk!");
 
 
 
@@ -142,34 +169,54 @@ static decimal GrandTotal(decimal subtotal, decimal salestax)
 
 
 
-static decimal PaymentType(decimal GRANDTOTAL, int PAYMENT)
+static string CashPayment(decimal grandTotal)
 
 {
-    if (PAYMENT == 1)
-    {
-        
-        Console.WriteLine("Please enter amount of cash.");
-        decimal CASH = Validator.GetPositiveInputDecimal();
-        
+    Console.WriteLine("Please enter amount of cash.");
 
-        decimal CHANGE = GRANDTOTAL - CASH;
-        return CHANGE;
-
-
-    }
-
-    return 0;
-
-
+    decimal CASH = Validator.GetPositiveInputDecimal();
+    decimal CHANGE = CASH - Math.Round(grandTotal, 2);
+    return $"You have paid your total of {Math.Round(grandTotal, 2)} with cash. Your change is {CHANGE}";
 
 }
 
+static string CreditPayment(decimal grandTotal)
+{
+    Console.Write("Please enter your Credit Card number: ");
+    decimal creditcardnum = Validator.GetPositiveInputDecimal();
+    Console.Write("Please enter the expiration date: ");
+    decimal creditcardexp = Validator.GetPositiveInputDecimal();
+    Console.Write("Please enter the cvv number: ");
+    decimal creditcardcvv = Validator.GetPositiveInputDecimal();
+    return $"You have paid your total of {Math.Round(grandTotal,2)} with credit.";
+}
+
+static string CheckPayment(decimal grandTotal)
+{
+    Console.Write("Please enter your Check number: ");
+    double checknum = Validator.GetPositiveInputDouble();
+    return $"You have paid your total of {Math.Round(grandTotal, 2)} with check #{checknum}.";
+}
 
 
+static Dictionary<string, int> AddToReceipt(Dictionary<string,int>OrderedItems, string choice, int qty)
+{
+    //need if statement here to check if item is already in the dictionary
+        //if yes- add quantity to value
+        //if no- proceed with adding item
+    OrderedItems.Add(choice, qty);
+    return OrderedItems;
+}
 
+static void ShowReceipt(Dictionary<string, int> OrderedItems)
+{
 
-
-
+    Console.WriteLine("----Receipt----");
+    foreach (KeyValuePair<string, int> pair in OrderedItems)
+    {
+            Console.WriteLine($"{pair.Key}\t{pair.Value,-10}");
+    }
+}
 
 
 
