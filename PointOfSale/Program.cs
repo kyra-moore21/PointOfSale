@@ -202,10 +202,16 @@ static string CheckPayment(decimal grandTotal)
 
 static Dictionary<string, int> AddToReceipt(Dictionary<string,int>OrderedItems, string choice, int qty)
 {
-    //need if statement here to check if item is already in the dictionary
-        //if yes- add quantity to value
-        //if no- proceed with adding item
-    OrderedItems.Add(choice, qty);
+
+    if (OrderedItems.ContainsKey(choice))
+    {
+        OrderedItems[choice] += qty;
+    }
+    else
+    {
+        OrderedItems.Add(choice, qty);
+    }
+
     return OrderedItems;
 }
 
