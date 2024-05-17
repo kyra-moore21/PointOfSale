@@ -1,6 +1,7 @@
 ﻿using PointOfSale;
 using StaticClass;
 using System.IO;
+using System.Text.RegularExpressions;
 
 string filepath = "../../../menu.txt";
 //if file doesn't exists
@@ -188,13 +189,21 @@ static string CashPayment(decimal grandTotal)
 
 static string CreditPayment(decimal grandTotal)
 {
+  
+    // Expiration Date regex pattern
+    string expirationDateRegex = @"^(0[1-9]|1[0-2])\/([0-9]{2})$";
+
     Console.Write("Please enter your Credit Card number: ");
-    decimal creditcardnum = Validator.GetPositiveInputDecimal();
-    Console.Write("Please enter the expiration date: ");
+    long creditcardnum = ValidatorPOS.GetCreditCard();
+    string num = creditcardnum.ToString();
+
+    Console.Write("Please enter the expiration date: MM/YY");
     decimal creditcardexp = Validator.GetPositiveInputDecimal();
+    
     Console.Write("Please enter the cvv number: ");
-    decimal creditcardcvv = Validator.GetPositiveInputDecimal();
-    return $"You have paid your total of {Math.Round(grandTotal,2)} with credit.";
+    int creditcardcvv = ValidatorPOS.GetCVV();
+
+    return $"You have paid your total of {Math.Round(grandTotal,2)} with credit card ending in XXXX XXXX XXXX {num.Substring(num.Length - 4)}";
 }
 
 static string CheckPayment(decimal grandTotal)
