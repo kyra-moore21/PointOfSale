@@ -3,20 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace PointOfSale
 {
     public class MenuClass
     {
+        //properties
         public List<Products> PerkItems { get; set; }
 
         //constructor 
-        public MenuClass() 
-        
+        public MenuClass()
+
         {
-            PerkItems = new List<Products>()
+
+            PerkItems = new List<Products>();
+
+
+
+        }
+        //methods
+        public void DisplayMenu()
         {
-            new Products("Black Drip Coffee","Pure, bold, invigorating simplicity.", "Drinks", 3.50m, 50),
+            Console.WriteLine($"{"Item",0}{"Description",38}{"Category",34}{"Price",18}{"In Stock",14}\n");
+            int count = 1;
+            foreach (Products p in PerkItems)
+            {
+
+                Console.WriteLine($"{count,2}. {p.ToString()}");
+                count++;
+            }
+        }
+         public static List<Products> GetInitalList()
+        {
+            List<Products> PerkItems = new List<Products>()
+                 {
+
+            new Products("Black Drip Coffee","Pure bold invigorating simplicity.", "Drinks", 3.50m, 50),
             new Products("Hot Chocolate","Rich Cocoa Bliss", "Drinks", 4.25m, 45),
             new Products("Tea","Mystery Medicine!", "Drinks", 5.00m, 30),
             new Products("Bottled Water", "Straight from the Chicago River!", "Drinks", 2.00m, 100),
@@ -29,19 +52,10 @@ namespace PointOfSale
             new Products("Ground Coffee Bean","Rise and Shine!", "Accessories", 12.99m, 20),
             new Products("Whole Coffee Bean","Rise and Grind!", "Accessories", 10.99m, 20)
 
-        };
-        }
-        //methods
-         public void DisplayMenu()
-        {
-            Console.WriteLine($"{"Item",0}{"Description",38}{"Category",34}{"Price",18}{"In Stock",14}\n");
-            int count = 1;
-            foreach (Products p in PerkItems)
-            {
-               
-                Console.WriteLine($"{count,2}. {p.ToString()}");
-                count++;
-            }
+                };
+            return PerkItems;
         }
     }
 }
+
+

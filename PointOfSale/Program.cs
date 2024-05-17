@@ -1,11 +1,34 @@
 ﻿using PointOfSale;
 using StaticClass;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
+using System.IO;
 
-
+string filepath = "../../../menu.txt";
+//if file doesn't exists
+if (File.Exists(filepath) == false)
+{
+    StreamWriter tempWriter = new StreamWriter(filepath);
+    foreach(Products s in MenuClass.GetInitalList())
+    {
+        tempWriter.WriteLine($"{s.Name}|{s.Description}|{s.Category}|{s.Price}|{s.Stock}");
+    }
+    tempWriter.Close();
+}
 MenuClass menu = new MenuClass();
+StreamReader reader = new StreamReader(filepath);
+while (true)
+{
+    string line = reader.ReadLine();
+    if(line == null)
+    {
+        break;
+    } else
+    {
+        string[] parts = line.Split("|");
+        Products m = new Products(parts[0], parts[1], parts[2], decimal.Parse(parts[3]), int.Parse(parts[4]));
+        menu.PerkItems.Add(m);
+    }
+}
+reader.Close();
 
 Dictionary<string, int> OrderedItems = new Dictionary<string, int>();
 
@@ -14,7 +37,8 @@ Dictionary<string, int> OrderedItems = new Dictionary<string, int>();
 decimal lineTotal = 0;
 decimal salesTax = 1.06m;
 
-
+int choice = -1;
+int quantity = 0;
 //display 
 do
 {
@@ -24,7 +48,7 @@ do
     menu.DisplayMenu();
 
     Console.WriteLine("Which item would you like?");
-    int choice = -1;
+    
     while (!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice >= menu.PerkItems.Count+1)
     {
         Console.WriteLine("Invalid Input, please try again");
@@ -34,7 +58,7 @@ do
     Console.WriteLine($"\n How many {menu.PerkItems[choice - 1].Name}s would you like?");
 
     //stock to match properties
-    int quantity = 0;
+    
     while (!int.TryParse(Console.ReadLine(), out quantity) || quantity >= menu.PerkItems[choice - 1].Stock || quantity < 0 || quantity == 0)
     {
         Console.WriteLine("Invalid Input, please try again");
@@ -45,8 +69,8 @@ do
     //reduces the stock 
     menu.PerkItems[choice - 1].Stock = Products.ReduceStock(menu.PerkItems[choice - 1].Stock, quantity);
     //checking to see if worked
-
     
+
     lineTotal += Products.LineTotal(quantity, menu.PerkItems[choice - 1].Price);
 
 
@@ -55,7 +79,7 @@ do
     
     Console.WriteLine($"Subtotal: {RunningSubtotal(lineTotal),0:C}");
 
-
+   
 
 } while (Validator.GetContinue("\n Would like to order something else?"));
 
@@ -114,7 +138,12 @@ Console.WriteLine("\nThank you for shopping with us at Central Perk!");
 
 
 
-
+StreamWriter writer = new StreamWriter(filepath);
+foreach (Products s in menu.PerkItems)
+{
+    writer.WriteLine($"{s.Name}|{s.Description}|{s.Category}|{s.Price}|{s.Stock}");
+}
+writer.Close();
 
 
 
@@ -197,7 +226,7 @@ static void ShowReceipt(Dictionary<string, int> OrderedItems)
     Console.WriteLine("\n -----------Receipt-------------\n");
     foreach (KeyValuePair<string, int> pair in OrderedItems)
     {
-            Console.WriteLine($"\t{pair.Key,-3}\t{pair.Value,-4}\n");
+            Console.WriteLine($"\t{pair.Key,3}\t{pair.Value,-4}\n");
     }
 }
 
