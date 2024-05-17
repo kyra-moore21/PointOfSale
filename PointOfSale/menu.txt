@@ -1,4 +1,4 @@
-Black Drip Coffee|Pure bold invigorating simplicity.|Drinks|3.50|46
+Black Drip Coffee|Pure bold invigorating simplicity.|Drinks|3.50|0
 Hot Chocolate|Rich Cocoa Bliss|Drinks|4.25|45
 Tea|Mystery Medicine!|Drinks|5.00|30
 Bottled Water|Straight from the Chicago River!|Drinks|2.00|100

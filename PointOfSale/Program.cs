@@ -3,6 +3,7 @@ using StaticClass;
 using System.IO;
 using System.Text.RegularExpressions;
 
+//textfile
 string filepath = "../../../menu.txt";
 //if file doesn't exists
 if (File.Exists(filepath) == false)
@@ -14,6 +15,7 @@ if (File.Exists(filepath) == false)
     }
     tempWriter.Close();
 }
+//calling our list
 MenuClass menu = new MenuClass();
 StreamReader reader = new StreamReader(filepath);
 while (true)
@@ -30,7 +32,7 @@ while (true)
     }
 }
 reader.Close();
-
+//storing ordered items
 Dictionary<string, int> OrderedItems = new Dictionary<string, int>();
 
 
@@ -42,28 +44,14 @@ int choice = -1;
 int quantity = 0;
 //display 
 do
-{
+{ 
 
-    //header
-    
     menu.DisplayMenu();
-
     Console.WriteLine("Which item would you like?");
-    
-    while (!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice >= menu.PerkItems.Count+1)
-    {
-        Console.WriteLine("Invalid Input, please try again");
-    }
-
+    choice = ValidatorPOS.UserChoice(menu.PerkItems);
     //user selects quantity of item
     Console.WriteLine($"\n How many {menu.PerkItems[choice - 1].Name}s would you like?");
-
-    //stock to match properties
-    
-    while (!int.TryParse(Console.ReadLine(), out quantity) || quantity >= menu.PerkItems[choice - 1].Stock || quantity < 0 || quantity == 0)
-    {
-        Console.WriteLine("Invalid Input, please try again");
-    }
+    quantity = ValidatorPOS.Qty(menu.PerkItems[choice - 1].Stock);
 
     AddToReceipt(OrderedItems, menu.PerkItems[choice - 1].Name, quantity);
 
@@ -76,13 +64,13 @@ do
 
 
 
-    Console.WriteLine($"\n You ordered {menu.PerkItems[choice - 1].Name} \n  Quantity: {quantity} @ {menu.PerkItems[choice - 1].Price, 0:C}  {Products.LineTotal(quantity, menu.PerkItems[choice - 1].Price),0:C}\n");
+    Console.WriteLine($"You ordered {menu.PerkItems[choice - 1].Name} \nQuantity: {quantity} @ {menu.PerkItems[choice - 1].Price, 0:C}=  {Products.LineTotal(quantity, menu.PerkItems[choice - 1].Price),0:C}\n");
     
     Console.WriteLine($"Subtotal: {RunningSubtotal(lineTotal),0:C}");
 
    
 
-} while (Validator.GetContinue("\n Would like to order something else?"));
+} while (Validator.GetContinue("Would like to order something else?"));
 
 //end of loop- Items will get totalled and user selects payment type
 
@@ -153,8 +141,6 @@ writer.Close();
 
 //Methods
 
-
-
 static decimal RunningSubtotal (decimal Running )
 {
 
@@ -191,19 +177,19 @@ static string CreditPayment(decimal grandTotal)
 {
   
     // Expiration Date regex pattern
-    string expirationDateRegex = @"^(0[1-9]|1[0-2])\/([0-9]{2})$";
+    
 
-    Console.Write("Please enter your Credit Card number: ");
-    long creditcardnum = ValidatorPOS.GetCreditCard();
-    string num = creditcardnum.ToString();
+    Console.Write("Please enter your Credit Card number using this format XXXX-XXXX-XXXX-XXXX: ");
+    string creditcardnum = ValidatorPOS.GetCreditCard(Console.ReadLine());
+    
 
-    Console.Write("Please enter the expiration date: MM/YY");
-    decimal creditcardexp = Validator.GetPositiveInputDecimal();
+    Console.Write("Please enter the expiration date MM/YY: ");
+    ValidatorPOS.GetMMYY(Console.ReadLine());
     
     Console.Write("Please enter the cvv number: ");
-    int creditcardcvv = ValidatorPOS.GetCVV();
+    ValidatorPOS.GetCVV(Console.ReadLine());
 
-    return $"You have paid your total of {Math.Round(grandTotal,2)} with credit card ending in XXXX XXXX XXXX {num.Substring(num.Length - 4)}";
+    return $"You have paid your total of {Math.Round(grandTotal,2)} with credit card ending in XXXX XXXX XXXX {creditcardnum.Substring(creditcardnum.Length - 4)}";
 }
 
 static string CheckPayment(decimal grandTotal)
