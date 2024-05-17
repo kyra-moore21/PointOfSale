@@ -5,22 +5,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 
 
-List<Products> PerkItems = new List<Products>()
-{
-    new Products("Black Drip Coffee","Pure, bold, invigorating simplicity.", "Drinks", 3.50m, 50),
-    new Products("Hot Chocolate","Rich Cocoa Bliss", "Drinks", 4.25m, 45),
-    new Products("Tea","Mystery Medicine!", "Drinks", 5.00m, 30),
-    new Products("Bottled Water", "Straight from the Chicago River!", "Drinks", 2.00m, 100),
-    new Products("Pour Over Coffee","The Pretentious choice!", "Drinks", 6.50m, 64),
-    new Products("Iced Lavender Latte","The Hipster Choice", "Drinks", 5.00m, 23),
-    new Products("Souvenir Tumbler","Collector's Edition", "Accessories", 12.99m, 60),
-    new Products("Cup Cozy","Only if you need to ramble...", "Accessories", 8.00m, 65),
-    new Products("Mug Warmer","We know you're forgetful!", "Accessories", 18.99m, 25),
-    new Products("TShirt","Represent your local coffee shop!","Accessories", 26.99m, 35),
-    new Products("Ground Coffee Bean","Rise and Shine!", "Accessories", 12.99m, 20),
-    new Products("Whole Coffee Bean","Rise and Grind!", "Accessories", 10.99m, 20)
-
-};
+MenuClass menu = new MenuClass();
 
 Dictionary<string, int> OrderedItems = new Dictionary<string, int>();
 
@@ -35,38 +20,38 @@ do
 {
 
     //header
-    Console.WriteLine($"{"Item",0}{"Description",38}{"Category",34}{"Price",18}{"In Stock",14}\n");
-    DisplayMenu(PerkItems);
+    
+    menu.DisplayMenu();
 
     Console.WriteLine("Which item would you like?");
     int choice = -1;
-    while (!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice >= PerkItems.Count+1)
+    while (!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice >= menu.PerkItems.Count+1)
     {
         Console.WriteLine("Invalid Input, please try again");
     }
 
     //user selects quantity of item
-    Console.WriteLine($"\n How many {PerkItems[choice - 1].Name}s would you like?");
+    Console.WriteLine($"\n How many {menu.PerkItems[choice - 1].Name}s would you like?");
 
     //stock to match properties
     int quantity = 0;
-    while (!int.TryParse(Console.ReadLine(), out quantity) || quantity >= PerkItems[choice - 1].Stock || quantity < 0 || quantity == 0)
+    while (!int.TryParse(Console.ReadLine(), out quantity) || quantity >= menu.PerkItems[choice - 1].Stock || quantity < 0 || quantity == 0)
     {
         Console.WriteLine("Invalid Input, please try again");
     }
 
-    AddToReceipt(OrderedItems, PerkItems[choice - 1].Name, quantity);
+    AddToReceipt(OrderedItems, menu.PerkItems[choice - 1].Name, quantity);
 
     //reduces the stock 
-    PerkItems[choice - 1].Stock = Products.ReduceStock(PerkItems[choice - 1].Stock, quantity);
+    menu.PerkItems[choice - 1].Stock = Products.ReduceStock(menu.PerkItems[choice - 1].Stock, quantity);
     //checking to see if worked
 
     
-    lineTotal += Products.LineTotal(quantity, PerkItems[choice - 1].Price);
+    lineTotal += Products.LineTotal(quantity, menu.PerkItems[choice - 1].Price);
 
 
 
-    Console.WriteLine($"\n You ordered {PerkItems[choice - 1].Name} \n  Quantity: {quantity} @ {PerkItems[choice - 1].Price, 0:C}  {Products.LineTotal(quantity, PerkItems[choice - 1].Price),0:C}\n");
+    Console.WriteLine($"\n You ordered {menu.PerkItems[choice - 1].Name} \n  Quantity: {quantity} @ {menu.PerkItems[choice - 1].Price, 0:C}  {Products.LineTotal(quantity, menu.PerkItems[choice - 1].Price),0:C}\n");
     
     Console.WriteLine($"Subtotal: {RunningSubtotal(lineTotal),0:C}");
 
@@ -138,16 +123,7 @@ Console.WriteLine("\nThank you for shopping with us at Central Perk!");
 
 //Methods
 
-static void DisplayMenu(List<Products> items)
-{
-    int count = 1;
-    foreach (Products p in items)
-    {
 
-        Console.WriteLine($"{count,2}. { p.ToString()}");
-        count++;
-    }
-}
 
 static decimal RunningSubtotal (decimal Running )
 {
