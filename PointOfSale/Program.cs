@@ -23,8 +23,7 @@ List<Products> PerkItems = new List<Products>()
 };
 
 Dictionary<string, int> OrderedItems = new Dictionary<string, int>();
-string item = "Item";
-string description = "Description";
+
 
 
 decimal lineTotal = 0;
@@ -35,8 +34,8 @@ decimal salesTax = 1.06m;
 do
 {
 
-
-    Console.WriteLine($"{"Item",4} Description                       Category                  Price         Current Stock\n");
+    //header
+    Console.WriteLine($"{"Item",0}{"Description",38}{"Category",34}{"Price",18}{"In Stock",14}\n");
     DisplayMenu(PerkItems);
 
     Console.WriteLine("Which item would you like?");
@@ -145,7 +144,7 @@ static void DisplayMenu(List<Products> items)
     foreach (Products p in items)
     {
 
-        Console.WriteLine($"{count}. { p.ToString()}");
+        Console.WriteLine($"{count,2}. { p.ToString()}");
         count++;
     }
 }
