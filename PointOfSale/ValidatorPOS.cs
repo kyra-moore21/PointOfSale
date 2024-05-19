@@ -61,7 +61,31 @@ namespace PointOfSale
             {
                 Console.WriteLine("Invalid Input, please try again");
             }
-            return stock;
+            return quantity;
+        }
+        public static bool GetContinue(string message)
+        {
+            bool result = false;
+            while (true)
+            {
+                Console.WriteLine($"{message} y/n");
+                string choice = Console.ReadLine().Trim().ToLower();
+                if (choice == "y")
+                {
+                    result = true;
+                    break;
+                }
+                else if (choice == "n")
+                {
+                    result = false;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Try again");
+                }
+            }
+            return result;
         }
     }
 }
