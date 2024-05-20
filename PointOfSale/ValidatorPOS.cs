@@ -37,7 +37,7 @@ namespace PointOfSale
         public static string GetMMYY(string input)
         {
             string expirationDateRegex = @"^(0[1-9]|1[0-2])\/([0-9]{2})$";
-            while(!Regex.IsMatch(input, expirationDateRegex)) 
+            while (!Regex.IsMatch(input, expirationDateRegex))
             {
                 Console.WriteLine("Please enter expiration using MM/YY");
                 input = Console.ReadLine();
@@ -52,19 +52,19 @@ namespace PointOfSale
             while (!int.TryParse(Console.ReadLine(), out choice) || choice < 0 || choice > menu.Count || menu[choice - 1].Stock == 0)
 
             {
-                if(choice == 99)
+                if (choice == 99)
                 {
                     break;
                 }
-                         
-                Console.WriteLine("Invalid input or item out of stock. Please try again."); 
-                              
+
+                Console.WriteLine("Invalid input or item out of stock. Please try again.");
+
             }
 
             return choice;
         }
 
-       public static int Qty(int stock)
+        public static int Qty(int stock)
         {
             int quantity = 0;
             while (!int.TryParse(Console.ReadLine(), out quantity) || quantity > stock || quantity <= 0)
@@ -108,7 +108,7 @@ namespace PointOfSale
 
             return result;
         }
-        
+
         public static decimal RunningSubtotal(decimal Running)
         {
 
