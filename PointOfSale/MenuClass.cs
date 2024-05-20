@@ -25,7 +25,7 @@ namespace PointOfSale
         //methods
         public void DisplayMenu()
         {
-            Console.WriteLine($"{"Item",3}{"Description",38}{"Category",34}{"Price",18}{"In Stock",14}\n");
+            Console.WriteLine($"{"Item",5}{"Description",37}{"Category",34}{"Price",18}{"In Stock",14}\n");
             int count = 1;
             foreach (Products p in PerkItems)
             {

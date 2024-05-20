@@ -47,17 +47,19 @@ namespace PointOfSale
 
         public static int UserChoice(List<Products> menu)
 
-        {    
+        {
             int choice = -1;
-            while (!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice > menu.Count || menu[choice - 1].Stock == 0)
+            while (!int.TryParse(Console.ReadLine(), out choice) || choice < 0 || choice > menu.Count || menu[choice - 1].Stock == 0)
 
             {
+                if(choice == 99)
+                {
+                    break;
+                }
                          
                 Console.WriteLine("Invalid input or item out of stock. Please try again."); 
                               
             }
-
-        
 
             return choice;
         }
@@ -127,7 +129,7 @@ namespace PointOfSale
 
         public static string CashPayment(decimal grandTotal)
         {
-            Console.WriteLine("Please enter amount of cash.");
+            Console.WriteLine("\nPlease enter amount of cash.");
 
             decimal CASH = Cash_Validator(grandTotal);
             decimal CHANGE = CASH - Math.Round(grandTotal, 2);
@@ -141,14 +143,14 @@ namespace PointOfSale
             // Expiration Date regex pattern
 
 
-            Console.Write("Please enter your Credit Card number using this format XXXX-XXXX-XXXX-XXXX: ");
+            Console.WriteLine("\nPlease enter your Credit Card number using this format XXXX-XXXX-XXXX-XXXX: ");
             string creditcardnum = ValidatorPOS.GetCreditCard(Console.ReadLine());
 
 
-            Console.Write("Please enter the expiration date MM/YY: ");
+            Console.WriteLine("Please enter the expiration date MM/YY: ");
             ValidatorPOS.GetMMYY(Console.ReadLine());
 
-            Console.Write("Please enter the cvv number: ");
+            Console.WriteLine("Please enter the cvv number: ");
             ValidatorPOS.GetCVV(Console.ReadLine());
 
             return $"You have paid your total of {Math.Round(grandTotal, 2)} with credit card ending in XXXX XXXX XXXX {creditcardnum.Substring(creditcardnum.Length - 4)}";
@@ -157,7 +159,7 @@ namespace PointOfSale
 
         public static string CheckPayment(decimal grandTotal)
         {
-            Console.Write("Please enter your Check number: ");
+            Console.Write("\nPlease enter your Check number: ");
             double checknum = Validator.GetPositiveInputDouble();
             return $"You have paid your total of {Math.Round(grandTotal, 2)} with check #{checknum}.";
         }
@@ -180,7 +182,7 @@ namespace PointOfSale
         public static void ShowReceipt(Dictionary<string, int> OrderedItems)
         {
 
-            Console.WriteLine("\n  ---------Receipt----------\n");
+            Console.WriteLine("\n ----------Receipt-----------\n");
             foreach (KeyValuePair<string, int> pair in OrderedItems)
             {
                 Console.WriteLine($"{pair.Key,-27}{pair.Value,3}\n");
