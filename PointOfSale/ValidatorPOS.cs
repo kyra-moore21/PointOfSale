@@ -45,19 +45,26 @@ namespace PointOfSale
         }
 
         public static int UserChoice(List<Products> menu)
-        {
+
+        {    
             int choice = -1;
-            while (!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice > menu.Count)
+            while (!int.TryParse(Console.ReadLine(), out choice) || choice <= 0 || choice > menu.Count || menu[choice - 1].Stock == 0)
+
             {
-                Console.WriteLine("Invalid Input, please try again");
+                         
+                Console.WriteLine("Invalid input or item out of stock. Please try again."); 
+                              
             }
+
+        
+
             return choice;
         }
 
        public static int Qty(int stock)
         {
             int quantity = 0;
-            while (!int.TryParse(Console.ReadLine(), out quantity) || quantity >= stock || quantity <= 0)
+            while (!int.TryParse(Console.ReadLine(), out quantity) || quantity > stock || quantity <= 0)
             {
                 Console.WriteLine("Invalid Input, please try again");
             }
@@ -87,5 +94,66 @@ namespace PointOfSale
             }
             return result;
         }
+        public static decimal Cash_Validator(decimal GrandTotal)
+        {
+            decimal result = -1;
+
+            while (!decimal.TryParse(Console.ReadLine(), out result) || result <= 0 || result < GrandTotal)
+            {
+                Console.WriteLine("Insufficient funds. Please try again.");
+            }
+
+            return result;
+        }
+        
+        public static decimal RunningSubtotal(decimal Running)
+        {
+
+            decimal subtotal = 0;
+
+            subtotal = Running + subtotal;
+
+            return subtotal;
+
+        }
+
+        public static decimal GrandTotal(decimal subtotal, decimal salestax)
+        {
+
+            return salestax * subtotal;
+
+        }
+
+        public static string CashPayment(decimal grandTotal)
+        {
+            Console.WriteLine("Please enter amount of cash.");
+
+            decimal CASH = Cash_Validator(grandTotal);
+            decimal CHANGE = CASH - Math.Round(grandTotal, 2);
+            return $"You have paid your total of {Math.Round(grandTotal, 2)} with cash. Your change is {CHANGE}";
+
+        }
+
+        public static string CreditPayment(decimal grandTotal)
+        {
+
+            // Expiration Date regex pattern
+
+
+            Console.Write("Please enter your Credit Card number using this format XXXX-XXXX-XXXX-XXXX: ");
+            string creditcardnum = ValidatorPOS.GetCreditCard(Console.ReadLine());
+
+
+            Console.Write("Please enter the expiration date MM/YY: ");
+            ValidatorPOS.GetMMYY(Console.ReadLine());
+
+            Console.Write("Please enter the cvv number: ");
+            ValidatorPOS.GetCVV(Console.ReadLine());
+
+            return $"You have paid your total of {Math.Round(grandTotal, 2)} with credit card ending in XXXX XXXX XXXX {creditcardnum.Substring(creditcardnum.Length - 4)}";
+        }
+
+
+
     }
 }

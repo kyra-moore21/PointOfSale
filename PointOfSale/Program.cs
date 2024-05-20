@@ -66,7 +66,7 @@ do
 
     Console.WriteLine($"You ordered {menu.PerkItems[choice - 1].Name} \nQuantity: {quantity} @ {menu.PerkItems[choice - 1].Price, 0:C}=  {Products.LineTotal(quantity, menu.PerkItems[choice - 1].Price),0:C}\n");
     
-    Console.WriteLine($"Subtotal: {RunningSubtotal(lineTotal),0:C}");
+    Console.WriteLine($"Subtotal: {ValidatorPOS.RunningSubtotal(lineTotal),0:C}");
 
    
 
@@ -79,13 +79,13 @@ ShowReceipt(OrderedItems);
 
 
 
-Console.WriteLine($"\tSubtotal: \t{RunningSubtotal(lineTotal),-3:C}");
+Console.WriteLine($"\tSubtotal: \t{ValidatorPOS.RunningSubtotal(lineTotal),-3:C}");
 
 Console.WriteLine($"\tSales tax: \t{(salesTax - 1) * lineTotal,-3:C}");
 
-Console.WriteLine($"\tGrand Total: \t{GrandTotal(lineTotal, salesTax),-3:C}");
+Console.WriteLine($"\tGrand Total: \t{ValidatorPOS.GrandTotal(lineTotal, salesTax),-3:C}");
 
-decimal GRANDTOTAL = GrandTotal(lineTotal, salesTax);
+decimal GRANDTOTAL = ValidatorPOS.GrandTotal(lineTotal, salesTax);
 
 
 
@@ -110,11 +110,11 @@ while (int.TryParse(Console.ReadLine(), out payType) == false || payType < 1 || 
 
 if (payType == 1)
 {
-    Console.WriteLine(CashPayment(GRANDTOTAL));
+    Console.WriteLine(ValidatorPOS.CashPayment(GRANDTOTAL));
 }
 else if (payType == 2)
 {
-    Console.WriteLine (CreditPayment(GRANDTOTAL));
+    Console.WriteLine (ValidatorPOS.CreditPayment(GRANDTOTAL));
 }
 
 else
@@ -141,56 +141,18 @@ writer.Close();
 
 //Methods
 
-static decimal RunningSubtotal (decimal Running )
-{
-
- decimal subtotal = 0;
-
- subtotal = Running + subtotal;
-
-  return subtotal;
-
-
-}
-
-static decimal GrandTotal(decimal subtotal, decimal salestax)
-{
-
-    return salestax * subtotal;
-
-}
 
 
 
-static string CashPayment(decimal grandTotal)
 
-{
-    Console.WriteLine("Please enter amount of cash.");
 
-    decimal CASH = Validator.GetPositiveInputDecimal();
-    decimal CHANGE = CASH - Math.Round(grandTotal, 2);
-    return $"You have paid your total of {Math.Round(grandTotal, 2)} with cash. Your change is {CHANGE}";
 
-}
 
-static string CreditPayment(decimal grandTotal)
-{
-  
-    // Expiration Date regex pattern
-    
 
-    Console.Write("Please enter your Credit Card number using this format XXXX-XXXX-XXXX-XXXX: ");
-    string creditcardnum = ValidatorPOS.GetCreditCard(Console.ReadLine());
-    
 
-    Console.Write("Please enter the expiration date MM/YY: ");
-    ValidatorPOS.GetMMYY(Console.ReadLine());
-    
-    Console.Write("Please enter the cvv number: ");
-    ValidatorPOS.GetCVV(Console.ReadLine());
 
-    return $"You have paid your total of {Math.Round(grandTotal,2)} with credit card ending in XXXX XXXX XXXX {creditcardnum.Substring(creditcardnum.Length - 4)}";
-}
+
+
 
 static string CheckPayment(decimal grandTotal)
 {
