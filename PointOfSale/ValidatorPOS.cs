@@ -179,7 +179,7 @@ namespace PointOfSale
             return OrderedItems;
         }
 
-        public static void ShowReceipt(Dictionary<string, int> OrderedItems)
+        public static void ShowReceipt(Dictionary<string, int> OrderedItems, decimal lineTotal, decimal salesTax)
         {
 
             Console.WriteLine("\n ----------Receipt-----------\n");
@@ -187,6 +187,12 @@ namespace PointOfSale
             {
                 Console.WriteLine($"{pair.Key,-27}{pair.Value,3}\n");
             }
+            Console.WriteLine($"{"Subtotal:",-25}{ValidatorPOS.RunningSubtotal(lineTotal),5:C}");
+
+            Console.WriteLine($"{"Sales tax:",-25}{(salesTax - 1) * lineTotal,5:C}");
+
+            Console.WriteLine($"{"Grand Total:",-25}{ValidatorPOS.GrandTotal(lineTotal, salesTax),5:C}");
+
         }
 
 

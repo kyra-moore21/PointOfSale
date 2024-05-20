@@ -3,6 +3,7 @@ using StaticClass;
 using System.IO;
 using System.Text.RegularExpressions;
 
+
 bool runProgram = true;
 //textfile
 string filepath = "../../../menu.txt";
@@ -37,7 +38,6 @@ int quantity = 0;
         FileIO.AddItem(menu.PerkItems);
         FileIO.UpdateFile(filepath, menu.PerkItems);
         continue;
-
     }
         //user selects quantity of item
         Console.WriteLine($"How many {menu.PerkItems[choice - 1].Name}s would you like?");
@@ -54,24 +54,17 @@ int quantity = 0;
             $"{Products.LineTotal(quantity, menu.PerkItems[choice - 1].Price),0:C}\n");
 
         Console.WriteLine($"Subtotal: {ValidatorPOS.RunningSubtotal(lineTotal),0:C}");
-
         //Console.Clear();
        runProgram = Validator.GetContinue("Would like to order something else?");    
 }
 //end of loop- Items will get totaled and user selects payment type
 Console.Clear();
 //shows list of items that customer ordered
-ValidatorPOS.ShowReceipt(OrderedItems);
+ValidatorPOS.ShowReceipt(OrderedItems, lineTotal, salesTax);
 
-    Console.WriteLine($"{"Subtotal:",-25}{ValidatorPOS.RunningSubtotal(lineTotal),5:C}");
+ decimal GRANDTOTAL = ValidatorPOS.GrandTotal(lineTotal, salesTax);
 
-    Console.WriteLine($"{"Sales tax:",-25}{(salesTax - 1) * lineTotal,5:C}");
-
-    Console.WriteLine($"{"Grand Total:",-25}{ValidatorPOS.GrandTotal(lineTotal, salesTax),5:C}");
-
-    decimal GRANDTOTAL = ValidatorPOS.GrandTotal(lineTotal, salesTax);
-
-    Console.WriteLine("\n How would like to purchase your items? \n" +
+Console.WriteLine("\n How would like to purchase your items? \n" +
                      "1. Cash \n" +
                      "2. Credit Card \n" +
                      "3. Check");
@@ -81,8 +74,6 @@ ValidatorPOS.ShowReceipt(OrderedItems);
     while (int.TryParse(Console.ReadLine(), out payType) == false || payType < 1 || payType > 3)
     {
         Console.WriteLine("Invalid Input, try again");
-
-
     }
 
     //If statement for which payment type was selected
@@ -95,15 +86,12 @@ ValidatorPOS.ShowReceipt(OrderedItems);
     {
         Console.WriteLine(ValidatorPOS.CreditPayment(GRANDTOTAL));
     }
-
     else
     {
         Console.WriteLine(ValidatorPOS.CheckPayment(GRANDTOTAL));
     }
 
-
     Console.WriteLine("\nThank you for shopping with us at Central Perk!");
-
 
     FileIO.UpdateFile(filepath, menu.PerkItems);
 
