@@ -53,7 +53,7 @@ do
     Console.WriteLine($"\n How many {menu.PerkItems[choice - 1].Name}s would you like?");
     quantity = ValidatorPOS.Qty(menu.PerkItems[choice - 1].Stock);
 
-    AddToReceipt(OrderedItems, menu.PerkItems[choice - 1].Name, quantity);
+    ValidatorPOS.AddToReceipt(OrderedItems, menu.PerkItems[choice - 1].Name, quantity);
 
     //reduces the stock 
     menu.PerkItems[choice - 1].Stock = Products.ReduceStock(menu.PerkItems[choice - 1].Stock, quantity);
@@ -75,7 +75,7 @@ do
 //end of loop- Items will get totalled and user selects payment type
 
 //shows list of items that customer ordered
-ShowReceipt(OrderedItems);
+ValidatorPOS.ShowReceipt(OrderedItems);
 
 
 
@@ -119,7 +119,7 @@ else if (payType == 2)
 
 else
 {
-    Console.WriteLine(CheckPayment(GRANDTOTAL));
+    Console.WriteLine(ValidatorPOS.CheckPayment(GRANDTOTAL));
 }
 
 
@@ -139,76 +139,5 @@ writer.Close();
 
 
 
-//Methods
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-static string CheckPayment(decimal grandTotal)
-{
-    Console.Write("Please enter your Check number: ");
-    double checknum = Validator.GetPositiveInputDouble();
-    return $"You have paid your total of {Math.Round(grandTotal, 2)} with check #{checknum}.";
-}
-
-
-static Dictionary<string, int> AddToReceipt(Dictionary<string,int>OrderedItems, string choice, int qty)
-{
-
-    if (OrderedItems.ContainsKey(choice))
-    {
-        OrderedItems[choice] += qty;
-    }
-    else
-    {
-        OrderedItems.Add(choice, qty);
-    }
-
-    return OrderedItems;
-}
-
-static void ShowReceipt(Dictionary<string, int> OrderedItems)
-{
-
-    Console.WriteLine("\n -----------Receipt-------------\n");
-    foreach (KeyValuePair<string, int> pair in OrderedItems)
-    {
-            Console.WriteLine($"\t{pair.Key,3}\t{pair.Value,-4}\n");
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Methods in classes
 

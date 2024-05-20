@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using StaticClass;
 
 namespace PointOfSale
 {
@@ -153,6 +154,38 @@ namespace PointOfSale
             return $"You have paid your total of {Math.Round(grandTotal, 2)} with credit card ending in XXXX XXXX XXXX {creditcardnum.Substring(creditcardnum.Length - 4)}";
         }
 
+
+        public static string CheckPayment(decimal grandTotal)
+        {
+            Console.Write("Please enter your Check number: ");
+            double checknum = Validator.GetPositiveInputDouble();
+            return $"You have paid your total of {Math.Round(grandTotal, 2)} with check #{checknum}.";
+        }
+
+        public static Dictionary<string, int> AddToReceipt(Dictionary<string, int> OrderedItems, string choice, int qty)
+        {
+
+            if (OrderedItems.ContainsKey(choice))
+            {
+                OrderedItems[choice] += qty;
+            }
+            else
+            {
+                OrderedItems.Add(choice, qty);
+            }
+
+            return OrderedItems;
+        }
+
+        public static void ShowReceipt(Dictionary<string, int> OrderedItems)
+        {
+
+            Console.WriteLine("\n  ---------Receipt----------\n");
+            foreach (KeyValuePair<string, int> pair in OrderedItems)
+            {
+                Console.WriteLine($"{pair.Key,-27}{pair.Value,3}\n");
+            }
+        }
 
 
     }
