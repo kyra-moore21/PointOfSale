@@ -133,7 +133,7 @@ namespace PointOfSale
 
             decimal CASH = Cash_Validator(grandTotal);
             decimal CHANGE = CASH - Math.Round(grandTotal, 2);
-            return $"You have paid your total of {Math.Round(grandTotal, 2)} with cash. Your change is {CHANGE}";
+            return $"You have paid your total of ${Math.Round(grandTotal, 2)} with cash. Your change is ${CHANGE}\n";
 
         }
 
@@ -153,7 +153,7 @@ namespace PointOfSale
             Console.WriteLine("Please enter the cvv number: ");
             ValidatorPOS.GetCVV(Console.ReadLine());
 
-            return $"You have paid your total of {Math.Round(grandTotal, 2)} with credit card ending in XXXX XXXX XXXX {creditcardnum.Substring(creditcardnum.Length - 4)}";
+            return $"You have paid your total of {Math.Round(grandTotal, 2)} with credit card ending in XXXX XXXX XXXX {creditcardnum.Substring(creditcardnum.Length - 4)}\n";
         }
 
 
@@ -161,7 +161,7 @@ namespace PointOfSale
         {
             Console.Write("\nPlease enter your Check number: ");
             double checknum = Validator.GetPositiveInputDouble();
-            return $"You have paid your total of {Math.Round(grandTotal, 2)} with check #{checknum}.";
+            return $"You have paid your total of {Math.Round(grandTotal, 2)} with check #{checknum}.\n";
         }
 
         public static Dictionary<string, int> AddToReceipt(Dictionary<string, int> OrderedItems, string choice, int qty)
