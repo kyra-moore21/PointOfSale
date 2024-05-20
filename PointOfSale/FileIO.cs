@@ -10,25 +10,17 @@ namespace PointOfSale
 {
     public class FileIO
     {
-        //private string Filepath { get; set; }
-
-        //public FileIO(string _filepath)
-        //{
-        //    _filepath  = "../../../menu.txt";
-        //}
-
-
 
         //methods
         public static List<Products> AddItem(List<Products> perkItems)
         {
-            Console.WriteLine("Enter Product Name:");
+            Console.WriteLine("Enter Product Name: ");
             string name = Console.ReadLine();
-            Console.WriteLine("Enter Description:");
+            Console.WriteLine("Enter Description: ");
             string description = Console.ReadLine();
-            Console.WriteLine("Enter Category:");
+            Console.WriteLine("Enter Category: ");
             string category = Console.ReadLine();
-            Console.WriteLine("Enter Price:");
+            Console.WriteLine("Enter Price: ");
             decimal price = Validator.GetPositiveInputDecimal();
             Console.WriteLine("Enter Stock: ");
             int stock = Validator.GetPositiveInputInt();

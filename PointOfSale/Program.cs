@@ -31,6 +31,7 @@ int quantity = 0;
         menu.DisplayMenu();
         Console.WriteLine("Which item would you like?");
     choice = ValidatorPOS.UserChoice(menu.PerkItems);
+    //add item
     if (choice == 99)
     {
         FileIO.AddItem(menu.PerkItems);
@@ -38,9 +39,6 @@ int quantity = 0;
         continue;
 
     }
-    
-        
-
         //user selects quantity of item
         Console.WriteLine($"How many {menu.PerkItems[choice - 1].Name}s would you like?");
         quantity = ValidatorPOS.Qty(menu.PerkItems[choice - 1].Stock);
@@ -50,29 +48,20 @@ int quantity = 0;
         //reduces the stock 
         menu.PerkItems[choice - 1].Stock = Products.ReduceStock(menu.PerkItems[choice - 1].Stock, quantity);
 
-
-
         lineTotal += Products.LineTotal(quantity, menu.PerkItems[choice - 1].Price);
 
-
-
-        Console.WriteLine($"You ordered {menu.PerkItems[choice - 1].Name} \nQuantity: {quantity} @ {menu.PerkItems[choice - 1].Price,0:C}=  {Products.LineTotal(quantity, menu.PerkItems[choice - 1].Price),0:C}\n");
-
+        Console.WriteLine($"You ordered {menu.PerkItems[choice - 1].Name} \nQuantity: {quantity} @ {menu.PerkItems[choice - 1].Price,0:C}=  " +
+            $"{Products.LineTotal(quantity, menu.PerkItems[choice - 1].Price),0:C}\n");
 
         Console.WriteLine($"Subtotal: {ValidatorPOS.RunningSubtotal(lineTotal),0:C}");
 
         //Console.Clear();
-       runProgram = Validator.GetContinue("Would like to order something else?");
-      
+       runProgram = Validator.GetContinue("Would like to order something else?");    
 }
-
-
 //end of loop- Items will get totaled and user selects payment type
 Console.Clear();
 //shows list of items that customer ordered
 ValidatorPOS.ShowReceipt(OrderedItems);
-
-
 
     Console.WriteLine($"{"Subtotal:",-25}{ValidatorPOS.RunningSubtotal(lineTotal),5:C}");
 
@@ -82,15 +71,10 @@ ValidatorPOS.ShowReceipt(OrderedItems);
 
     decimal GRANDTOTAL = ValidatorPOS.GrandTotal(lineTotal, salesTax);
 
-
-
-
-
     Console.WriteLine("\n How would like to purchase your items? \n" +
                      "1. Cash \n" +
                      "2. Credit Card \n" +
                      "3. Check");
-
 
     int payType = 0;
 
@@ -121,6 +105,6 @@ ValidatorPOS.ShowReceipt(OrderedItems);
     Console.WriteLine("\nThank you for shopping with us at Central Perk!");
 
 
-FileIO.UpdateFile(filepath, menu.PerkItems);
+    FileIO.UpdateFile(filepath, menu.PerkItems);
 
 
