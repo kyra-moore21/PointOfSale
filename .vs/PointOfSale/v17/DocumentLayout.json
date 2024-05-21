@@ -11,12 +11,8 @@
       "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\validator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\menuclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\menuclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\menu.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\menu.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\validatorpos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +21,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\fileio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\fileio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\menuclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\menuclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +38,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 633,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "menu.txt",
+              "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\menu.txt",
+              "RelativeDocumentMoniker": "PointOfSale\\menu.txt",
+              "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\menu.txt",
+              "RelativeToolTip": "PointOfSale\\menu.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-05-21T13:31:37.284Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -44,26 +61,27 @@
               "RelativeDocumentMoniker": "PointOfSale\\Validator.cs",
               "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\Validator.cs",
               "RelativeToolTip": "PointOfSale\\Validator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAYwH8AAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-21T13:05:35.801Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Products.cs",
               "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\Products.cs",
               "RelativeDocumentMoniker": "PointOfSale\\Products.cs",
               "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\Products.cs",
               "RelativeToolTip": "PointOfSale\\Products.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T13:03:32.21Z"
+              "WhenOpened": "2024-05-21T13:03:32.21Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "MenuClass.cs",
               "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\MenuClass.cs",
               "RelativeDocumentMoniker": "PointOfSale\\MenuClass.cs",
@@ -75,27 +93,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "FileIO.cs",
               "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\FileIO.cs",
               "RelativeDocumentMoniker": "PointOfSale\\FileIO.cs",
               "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\FileIO.cs",
               "RelativeToolTip": "PointOfSale\\FileIO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEMAAAAlAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAowEMAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T19:30:21.822Z"
+              "WhenOpened": "2024-05-20T19:30:21.822Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ValidatorPOS.cs",
               "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\ValidatorPOS.cs",
               "RelativeDocumentMoniker": "PointOfSale\\ValidatorPOS.cs",
               "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\ValidatorPOS.cs",
               "RelativeToolTip": "PointOfSale\\ValidatorPOS.cs",
-              "ViewState": "AQIAAJEAAAAAAAAAAAAqwIcAAABuAAAA",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwBsAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T19:08:19.191Z"
+              "WhenOpened": "2024-05-20T19:08:19.191Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -105,7 +125,7 @@
               "RelativeDocumentMoniker": "PointOfSale\\Program.cs",
               "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\Program.cs",
               "RelativeToolTip": "PointOfSale\\Program.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAABQAAAAAAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAAHEAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-20T19:07:14.113Z",
               "EditorCaption": ""

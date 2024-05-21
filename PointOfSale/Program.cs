@@ -108,7 +108,8 @@ while (MainProgram)
 
     FileIO.UpdateFile(filepath, menu.PerkItems);
 
-  
+    Console.Clear();
+
     MainProgram = Validator.GetContinue("Keep our coffee shop open?");
     
 
