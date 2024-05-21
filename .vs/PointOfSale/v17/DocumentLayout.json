@@ -1,0 +1,118 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\validator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\validator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\menuclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\menuclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\validatorpos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\validatorpos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|c:\\users\\kyram\\source\\repos\\pointofsale\\pointofsale\\fileio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{182CAC99-D612-4DA8-BF87-91958433603B}|PointOfSale\\PointOfSale.csproj|solutionrelative:pointofsale\\fileio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 633,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Validator.cs",
+              "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\Validator.cs",
+              "RelativeDocumentMoniker": "PointOfSale\\Validator.cs",
+              "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\Validator.cs",
+              "RelativeToolTip": "PointOfSale\\Validator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T13:05:35.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Products.cs",
+              "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\Products.cs",
+              "RelativeDocumentMoniker": "PointOfSale\\Products.cs",
+              "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\Products.cs",
+              "RelativeToolTip": "PointOfSale\\Products.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T13:03:32.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MenuClass.cs",
+              "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\MenuClass.cs",
+              "RelativeDocumentMoniker": "PointOfSale\\MenuClass.cs",
+              "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\MenuClass.cs",
+              "RelativeToolTip": "PointOfSale\\MenuClass.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAwwDEAAABeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T00:45:46.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FileIO.cs",
+              "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\FileIO.cs",
+              "RelativeDocumentMoniker": "PointOfSale\\FileIO.cs",
+              "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\FileIO.cs",
+              "RelativeToolTip": "PointOfSale\\FileIO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEMAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T19:30:21.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ValidatorPOS.cs",
+              "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\ValidatorPOS.cs",
+              "RelativeDocumentMoniker": "PointOfSale\\ValidatorPOS.cs",
+              "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\ValidatorPOS.cs",
+              "RelativeToolTip": "PointOfSale\\ValidatorPOS.cs",
+              "ViewState": "AQIAAJEAAAAAAAAAAAAqwIcAAABuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T19:08:19.191Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\Program.cs",
+              "RelativeDocumentMoniker": "PointOfSale\\Program.cs",
+              "ToolTip": "C:\\Users\\kyram\\source\\repos\\PointOfSale\\PointOfSale\\Program.cs",
+              "RelativeToolTip": "PointOfSale\\Program.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T19:07:14.113Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

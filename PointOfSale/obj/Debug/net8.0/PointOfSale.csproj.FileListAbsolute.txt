@@ -1,0 +1,15 @@
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\bin\Debug\net8.0\PointOfSale.exe
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\bin\Debug\net8.0\PointOfSale.deps.json
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\bin\Debug\net8.0\PointOfSale.runtimeconfig.json
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\bin\Debug\net8.0\PointOfSale.dll
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\bin\Debug\net8.0\PointOfSale.pdb
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\obj\Debug\net8.0\PointOfSale.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\obj\Debug\net8.0\PointOfSale.AssemblyInfoInputs.cache
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\obj\Debug\net8.0\PointOfSale.AssemblyInfo.cs
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\obj\Debug\net8.0\PointOfSale.csproj.CoreCompileInputs.cache
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\obj\Debug\net8.0\PointOfSale.sourcelink.json
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\obj\Debug\net8.0\PointOfSale.dll
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\obj\Debug\net8.0\refint\PointOfSale.dll
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\obj\Debug\net8.0\PointOfSale.pdb
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\obj\Debug\net8.0\PointOfSale.genruntimeconfig.cache
+C:\Users\kyram\source\repos\PointOfSale\PointOfSale\obj\Debug\net8.0\ref\PointOfSale.dll
