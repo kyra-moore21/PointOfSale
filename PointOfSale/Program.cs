@@ -24,7 +24,7 @@ while (MainProgram)
 
     // creates the menu list
     MenuClass menu = new MenuClass();
-
+    
     // populates the menu list
     FileIO.Reader(filepath, menu.PerkItems);
 
@@ -129,12 +129,13 @@ while (MainProgram)
     // creates a final copy of stock depletion(s) or new stock item(s)  
     FileIO.UpdateFile(filepath, menu.PerkItems);
 
-    Console.Clear();
+   
 
 // 4.OPEN OR CLOSE THE PROGRAM
 
     MainProgram = Validator.GetContinue("Keep our coffee shop open?");
-    
+
+    Console.Clear();
 
 }
 

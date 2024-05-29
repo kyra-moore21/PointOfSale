@@ -1,14 +1,13 @@
-Black Drip Coffee|Pure bold invigorating simplicity.|Drinks|3.50|21
-Hot Chocolate|Rich Cocoa Bliss|Drinks|4.25|15
-Tea|Mystery Medicine!|Drinks|5.00|27
-Bottled Water|Straight from the Chicago River!|Drinks|2.00|86
-Pour Over Coffee|The Pretentious choice!|Drinks|6.50|58
-Iced Lavender Latte|The Hipster Choice|Drinks|5.00|17
-Souvenir Tumbler|Collector's Edition|Accessories|12.99|53
-Cup Cozy|Only if you need to ramble...|Accessories|8.00|57
-Mug Warmer|We know you're forgetful!|Accessories|18.99|16
-TShirt|Represent your local coffee shop!|Accessories|26.99|31
-Ground Coffee Bean|Rise and Shine!|Accessories|12.99|19
-Whole Coffee Bean|Rise and Grind!|Accessories|10.99|14
-Snowcones|Fun!|Treats|6.00|46
-Kinder Eggs|Chocolate Egg with a Suprise Inside!|Treats|5.00|100
+Black Drip Coffee|Pure bold invigorating simplicity.|Drinks|3.50|48
+Hot Chocolate|Rich Cocoa Bliss|Drinks|4.25|43
+Tea|Mystery Medicine!|Drinks|5.00|30
+Bottled Water|Straight from the Chicago River!|Drinks|2.00|100
+Pour Over Coffee|The Pretentious choice!|Drinks|6.50|64
+Iced Lavender Latte|The Hipster Choice|Drinks|5.00|23
+Souvenir Tumbler|Collector's Edition|Accessories|12.99|60
+Cup Cozy|Only if you need to ramble...|Accessories|8.00|65
+Mug Warmer|We know you're forgetful!|Accessories|18.99|25
+TShirt|Represent your local coffee shop!|Accessories|26.99|35
+Ground Coffee Bean|Rise and Shine!|Accessories|12.99|20
+Whole Coffee Bean|Rise and Grind!|Accessories|10.99|20
+Rubber Duck|Quack|Accessories|6.50|55
