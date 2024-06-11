@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StaticClass;
+
 
 
 namespace PointOfSale
@@ -21,9 +21,9 @@ namespace PointOfSale
             Console.WriteLine("Enter Category: ");
             string category = Console.ReadLine();
             Console.WriteLine("Enter Price: ");
-            decimal price = Validator.GetPositiveInputDecimal();
+            decimal price = ValidatorPOS.GetPositiveInputDecimal();
             Console.WriteLine("Enter Stock: ");
-            int stock = Validator.GetPositiveInputInt();
+            int stock = ValidatorPOS.GetPositiveInputInt();
                 
             Products newProduct = new Products(name, description, category, price, stock);
             perkItems.Add(newProduct);

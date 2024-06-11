@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using StaticClass;
+
 
 namespace PointOfSale
 {
@@ -144,14 +144,14 @@ namespace PointOfSale
 
 
             Console.WriteLine("\nPlease enter your Credit Card number using this format XXXX-XXXX-XXXX-XXXX: ");
-            string creditcardnum = ValidatorPOS.GetCreditCard(Console.ReadLine());
+            string creditcardnum = GetCreditCard(Console.ReadLine());
 
 
             Console.WriteLine("Please enter the expiration date MM/YY: ");
-            ValidatorPOS.GetMMYY(Console.ReadLine());
+            GetMMYY(Console.ReadLine());
 
             Console.WriteLine("Please enter the cvv number: ");
-            ValidatorPOS.GetCVV(Console.ReadLine());
+            GetCVV(Console.ReadLine());
 
             return $"You have paid your total of {Math.Round(grandTotal, 2)} with credit card ending in XXXX XXXX XXXX {creditcardnum.Substring(creditcardnum.Length - 4)}\n";
         }
@@ -160,7 +160,7 @@ namespace PointOfSale
         public static string CheckPayment(decimal grandTotal)
         {
             Console.Write("\nPlease enter your Check number: ");
-            double checknum = Validator.GetPositiveInputDouble();
+            double checknum = GetPositiveInputDouble();
             return $"You have paid your total of {Math.Round(grandTotal, 2)} with check #{checknum}.\n";
         }
 
@@ -193,6 +193,33 @@ namespace PointOfSale
 
             Console.WriteLine($"{"Grand Total:",-25}{ValidatorPOS.GrandTotal(lineTotal, salesTax),5:C}");
 
+        }
+        public static int GetPositiveInputInt()
+        {
+            int result = -1;
+            while (int.TryParse(Console.ReadLine(), out result) == false || result <= 0)
+            {
+                Console.WriteLine("Invalid input. Try again with a positive number.");
+            }
+            return result;
+        }
+        public static double GetPositiveInputDouble()
+        {
+            double result = -1;
+            while (double.TryParse(Console.ReadLine(), out result) == false || result <= 0)
+            {
+                Console.WriteLine("Invalid input. Try again with a positive number.");
+            }
+            return result;
+        }
+        public static decimal GetPositiveInputDecimal()
+        {
+            decimal result = -1;
+            while (decimal.TryParse(Console.ReadLine(), out result) == false || result <= 0)
+            {
+                Console.WriteLine("Invalid input. Try again with a positive number.");
+            }
+            return result;
         }
 
 

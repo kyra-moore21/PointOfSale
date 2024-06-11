@@ -1,5 +1,4 @@
 ﻿using PointOfSale;
-using StaticClass;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
@@ -77,7 +76,7 @@ while (MainProgram)
         Console.WriteLine($"Subtotal: {ValidatorPOS.RunningSubtotal(lineTotal),0:C}");
         
         ///  asking for another item
-        runProgram = Validator.GetContinue("Would like to order something else?");
+        runProgram = ValidatorPOS.GetContinue("Would like to order something else?");
     }
 
     // end of loop - Items will get totaled and user selects payment type
@@ -133,7 +132,7 @@ while (MainProgram)
 
 // 4.OPEN OR CLOSE THE PROGRAM
 
-    MainProgram = Validator.GetContinue("Keep our coffee shop open?");
+    MainProgram = ValidatorPOS.GetContinue("Keep our coffee shop open?");
 
     Console.Clear();
 
