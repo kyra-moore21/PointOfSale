@@ -10,6 +10,8 @@ namespace PointOfSale
 {
     public class ValidatorPOS
     {
+        
+
         public static string GetCreditCard(string input)
         {
             string creditCardRegex = @"^(?:\d{4}-){3}\d{4}$";

@@ -30,8 +30,6 @@ while (MainProgram)
     // stores customer order
     Dictionary<string, int> OrderedItems = new Dictionary<string, int>();
 
-
-
     decimal lineTotal = 0;
     decimal salesTax = 1.06m;
 
@@ -89,7 +87,7 @@ while (MainProgram)
     ValidatorPOS.ShowReceipt(OrderedItems, lineTotal, salesTax);
 
     // grand total
-    decimal GRANDTOTAL = ValidatorPOS.GrandTotal(lineTotal, salesTax);
+    decimal grandTotal = ValidatorPOS.GrandTotal(lineTotal, salesTax);
 
 
 
@@ -109,19 +107,19 @@ while (MainProgram)
         Console.WriteLine("Invalid Input, try again");
     }
 
-    // "If" statement for which payment type was selected
+  
 
-    if (payType == 1)
+    switch (payType)
     {
-        Console.WriteLine(ValidatorPOS.CashPayment(GRANDTOTAL));
-    }
-    else if (payType == 2)
-    {
-        Console.WriteLine(ValidatorPOS.CreditPayment(GRANDTOTAL));
-    }
-    else
-    {
-        Console.WriteLine(ValidatorPOS.CheckPayment(GRANDTOTAL));
+        case 1:
+            Console.WriteLine(ValidatorPOS.CashPayment(grandTotal));
+            break;
+        case 2:
+            Console.WriteLine(ValidatorPOS.CreditPayment(grandTotal));
+            break;
+        case 3:
+            Console.WriteLine(ValidatorPOS.CheckPayment(grandTotal));
+            break;
     }
 
 
